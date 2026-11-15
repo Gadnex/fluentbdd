@@ -1,15 +1,15 @@
 package io.github.gadnex.fluentbdd;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.TestReporter;
-
-import java.util.concurrent.atomic.AtomicInteger;
 
 /** Base class for Spring-managed drivers that report BDD steps to JUnit. */
 public abstract class BddTestDriver {
 
   /** The current test's reporter, or {@code null} before initialization. */
   protected @Nullable TestReporter testReporter;
+
   private @Nullable AtomicInteger stepCounter;
 
   /** Creates a driver that has not yet been initialized for a test. */

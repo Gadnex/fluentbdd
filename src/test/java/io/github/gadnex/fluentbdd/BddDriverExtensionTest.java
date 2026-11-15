@@ -1,11 +1,11 @@
 package io.github.gadnex.fluentbdd;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringJUnitConfig({BddDriverExtensionTest.class, BddDriverExtensionTest.ProbeDriver.class})
 @BddDriver(BddDriverExtensionTest.ProbeDriver.class)
