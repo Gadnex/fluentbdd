@@ -8,6 +8,7 @@ plugins {
 
 group = "io.github.gadnex"
 version = scmVersion.version
+description = "Java library used to generate BDD step documentation for JUnit 6 and Spring projects"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -45,8 +46,39 @@ tasks.test {
 
 publishing {
     publications {
-        create<MavenPublication>("mavenJava") {
+        create<MavenPublication>("maven") {
+            groupId = "io.github.gadnex"
+            artifactId = "fluentbdd"
             from(components["java"])
+            pom {
+                name.set("fluentbdd")
+                description.set("Java library used to generate BDD step documentation for JUnit 6 and Spring projects")
+                url.set("https://github.com/Gadnex/fluentbdd")
+                inceptionYear.set("2026")
+                licenses {
+                    license {
+                        name.set("Apache-2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("gadnex")
+                        name.set("William Gadney")
+                    }
+                }
+                scm {
+                    connection.set("scm:git@github.com:Gadnex/fluentbdd.git")
+                    developerConnection.set("scm:git:ssh://github.com/Gadnex/fluentbdd.git")
+                    url.set("https://github.com/Gadnex/fluentbdd.git")
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri(layout.buildDirectory.dir("maven-release"))
         }
     }
 }
