@@ -1,6 +1,7 @@
 plugins {
     `java-library`
     `maven-publish`
+    signing
     id("io.spring.nullability") version "0.0.18"
     id("com.diffplug.spotless") version "8.11.0"
     id("pl.allegro.tech.build.axion-release") version "1.21.4"
@@ -80,5 +81,15 @@ publishing {
         maven {
             url = uri(layout.buildDirectory.dir("maven-release"))
         }
+    }
+}
+
+signing {
+    sign(publishing.publications)
+}
+
+spotless {
+    java {
+        googleJavaFormat()
     }
 }
